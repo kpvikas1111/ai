@@ -1,0 +1,3 @@
+system_name,email,record_state,evidence_id
+customer_profiles_replica,john.wick@email.com,PRESENT,evidence_logs_csv
+marketing_service,sarah.connor@email.com,ACTIVE_FLOW,evidence_logs_csv

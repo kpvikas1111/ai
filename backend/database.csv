@@ -1,0 +1,4 @@
+case_id,email,status,system
+CASE_100,alice@example.com,COMPLETE,account_service
+CASE_101,bob@example.com,INCOMPLETE,billing_db
+CASE_102,charlie@example.com,INCOMPLETE,marketing_logs

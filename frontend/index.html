@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CASPERX | Phantom Data Detection</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Orbitron:wght@500;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hud-wrapper">
+        <nav class="sidebar glass-panel">
+            <div class="brand">
+                <div class="pulse-ring"></div>
+                <div class="brand-text">
+                    <h1>CASPERX</h1>
+                    <p class="brand-caption">PHANTOM DATA DETECTION ENGINE</p>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li class="active" onclick="switchTab('analyticsView', this)"><span class="icon">📊</span> MACRO ANALYTICS</li>
+                <li onclick="switchTab('singleAuditView', this)"><span class="icon">🎯</span> DEEP SCAN ENGINE</li>
+            </ul>
+            <div class="system-status">
+                <p>SYSTEM UPLINK: <span class="text-green">SECURE</span></p>
+                <p>NODES ACTIVE: <span class="text-cyan">3/3</span></p>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <section id="analyticsView" class="view-section active-view">
+                <header class="section-header glass-panel">
+                    <h2>ENTERPRISE COMPLIANCE OVERVIEW</h2>
+                    <p class="subtitle">Real-time telemetry from batch execution</p>
+                </header>
+                <div class="dashboard-grid">
+                    <div class="stat-card glass-panel"><h3>TOTAL REQUESTS</h3><div class="stat-value">518</div></div>
+                    <div class="stat-card glass-panel"><h3>COMPLIANT (COMPLETE)</h3><div class="stat-value text-green">330</div></div>
+                    <div class="stat-card glass-panel"><h3>VIOLATIONS (INCOMPLETE)</h3><div class="stat-value text-red">188</div></div>
+                    <div class="chart-container glass-panel chart-span-1"><h3>COMPLIANCE RATIO</h3><canvas id="complianceChart"></canvas></div>
+                    <div class="chart-container glass-panel chart-span-2"><h3>DATA LEAK VECTORS</h3><canvas id="leakVectorChart"></canvas></div>
+                </div>
+            </section>
+
+            <section id="singleAuditView" class="view-section">
+                <header class="section-header glass-panel flex-between">
+                    <div><h2>TARGETED AUDIT ENGINE</h2><p class="subtitle">Multi-source identity & replication drift scanner</p></div>
+                    <div class="scan-controls">
+                        <input type="text" id="caseId" class="cyber-input" placeholder="Case ID">
+                        <input type="email" id="userEmail" class="cyber-input" placeholder="Target Email">
+                        <button id="scanBtn" class="cyber-button" onclick="executeScan()"><span id="btnText">EXECUTE SCAN</span><div id="scanLoader" class="loader hidden"></div></button>
+                    </div>
+                </header>
+
+                <div id="standbyScreen" class="standby-screen glass-panel"><h2>AWAITING TARGET PARAMETERS...</h2></div>
+
+                <div id="resultsScreen" class="results-screen hidden">
+                    <div class="status-header glass-panel flex-between">
+                        <div><h2 id="displayCaseId">CASE_XXX</h2><p id="displayEmail" class="mono-text">email</p></div>
+                        <div id="statusBadge" class="status-badge glowing">PENDING</div>
+                    </div>
+                    <div class="diagnostics-grid">
+                        <div class="card glass-panel alert-box"><h3>⚠ DIAGNOSTIC REASON</h3><p id="diagnosticReason">...</p></div>
+                        <div class="card glass-panel fix-box"><h3>🔧 REMEDIATION PLAN</h3><p id="correctionPlan">...</p></div>
+                    </div>
+                    <div class="card glass-panel data-table-container">
+                        <h3>SYSTEM ACTION PROTOCOL (steps_json)</h3>
+                        <table class="cyber-table">
+                            <thead><tr><th>SEQ</th><th>PHASE</th><th>OPERATION</th><th>SYSTEM TARGET</th><th>RESOURCE ID</th><th>STATE</th></tr></thead>
+                            <tbody id="stepsBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
